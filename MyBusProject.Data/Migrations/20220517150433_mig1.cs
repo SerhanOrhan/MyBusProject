@@ -84,8 +84,7 @@ namespace MyBusProject.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Date = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<double>(type: "REAL", nullable: false),
-                    BussId = table.Column<int>(type: "INTEGER", nullable: false),
-                    BusId = table.Column<int>(type: "INTEGER", nullable: true),
+                    BusId = table.Column<int>(type: "INTEGER", nullable: false),
                     PassengerId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -96,7 +95,7 @@ namespace MyBusProject.Data.Migrations
                         column: x => x.BusId,
                         principalTable: "Busses",
                         principalColumn: "BusId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Tickets_Passengers_PassengerId",
                         column: x => x.PassengerId,
@@ -114,7 +113,7 @@ namespace MyBusProject.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stations", x => new { x.RouteId, x.VoyageId });
+                    table.PrimaryKey("PK_Stations", x => new { x.VoyageId, x.RouteId });
                     table.ForeignKey(
                         name: "FK_Stations_Routes_RouteId",
                         column: x => x.RouteId,
@@ -130,9 +129,9 @@ namespace MyBusProject.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stations_VoyageId",
+                name: "IX_Stations_RouteId",
                 table: "Stations",
-                column: "VoyageId");
+                column: "RouteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_BusId",

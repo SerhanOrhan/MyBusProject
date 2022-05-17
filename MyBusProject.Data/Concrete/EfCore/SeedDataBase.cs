@@ -78,13 +78,13 @@ namespace MyBusProject.Data.Concrete
         };
         private static Ticket[] Tickets =
         {
-            new Ticket() {Date="1965-12-25",Price=25.30,BussId=1,PassengerId=2},
-            new Ticket() {Date="1961-10-25",Price=240.30,BussId=2,PassengerId=1},
-            new Ticket() {Date="1965-09-11",Price=225.30,BussId=1,PassengerId=7},
-            new Ticket() {Date="1995-07-25",Price=215.30,BussId=5,PassengerId=5},
-            new Ticket() {Date="1935-01-25",Price=225.30,BussId=8,PassengerId=3},
-            new Ticket() {Date="1965-03-22",Price=245.30,BussId=3,PassengerId=4},
-            new Ticket() {Date="1965-08-01",Price=235.30,BussId=7,PassengerId=8},
+            new Ticket() {Date="1965-12-25",Price=25.30,BusId=1,PassengerId=2},
+            new Ticket() {Date="1961-10-25",Price=240.30,BusId=2,PassengerId=1},
+            new Ticket() {Date="1965-09-11",Price=225.30,BusId=1,PassengerId=7},
+            new Ticket() {Date="1995-07-25",Price=215.30,BusId=5,PassengerId=5},
+            new Ticket() {Date="1935-01-25",Price=225.30,BusId=8,PassengerId=3},
+            new Ticket() {Date="1965-03-22",Price=245.30,BusId=3,PassengerId=4},
+            new Ticket() {Date="1965-08-01",Price=235.30,BusId=7,PassengerId=8},
         };
         private static Voyage[] Voyages =
         {
