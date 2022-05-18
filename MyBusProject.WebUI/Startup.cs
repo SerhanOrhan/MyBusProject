@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyBusProject.Business.Abstract;
+using MyBusProject.Business.Concrete;
+using MyBusProject.Data.Abstract;
 using MyBusProject.Data.Concrete;
+using MyBusProject.Data.Concrete.EfCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +29,18 @@ namespace MyBusProject.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //Data Kýsmý Scop
+            services.AddScoped<IBusRepository, EfCoreBusRepository>();
+            services.AddScoped<IPassengerRepository, EfCorePassengerRepository>();
+            services.AddScoped<IRouteRepository, EfCoreRouteRepository>();
+            services.AddScoped<ITicketRepository, EfCoreTicketRepository>();
+            services.AddScoped<IVoyageRepository, EfCoreVoyageRepository>();
+            //Business kýsmý scop
+            services.AddScoped<IBusService, BusManager>();
+            services.AddScoped<IPassengerService, PassengerManager>();
+            services.AddScoped<IRouteService, RouteManager>();
+            services.AddScoped<ITicketService, TicketManager>();
+            services.AddScoped<IVoyageService, VoyageManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

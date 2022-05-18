@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyBusProject.Business\MyBusProject.Business.csproj" />
     <ProjectReference Include="..\MyBusProject.Entity\MyBusProject.Entity.csproj" />
   </ItemGroup>
 
