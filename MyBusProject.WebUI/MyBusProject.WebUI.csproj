@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -12,12 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyBusProject.Data\MyBusProject.Data.csproj" />
-    <ProjectReference Include="..\MyBusProject.Entity\MyBusProject.Entity.csproj" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\MyBusProject.Business\MyBusProject.Business.csproj" />
+    <ProjectReference Include="..\MyBusProject.Data\MyBusProject.Data.csproj" />
   </ItemGroup>
 
 </Project>

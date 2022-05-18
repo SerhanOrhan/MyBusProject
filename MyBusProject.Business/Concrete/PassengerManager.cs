@@ -1,4 +1,5 @@
 ﻿using MyBusProject.Business.Abstract;
+using MyBusProject.Data.Abstract;
 using MyBusProject.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ namespace MyBusProject.Business.Concrete
 {
     public class PassengerManager : IPassengerService
     {
-        private IPassengerService _passengerService;
-        public PassengerManager( IPassengerService passengerService)
+        private IPassengerRepository _passengerService;
+        public PassengerManager(IPassengerRepository passengerService)
         {
             _passengerService = passengerService;
         }

@@ -1,4 +1,5 @@
 ﻿using MyBusProject.Business.Abstract;
+using MyBusProject.Data.Abstract;
 using MyBusProject.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ namespace MyBusProject.Business.Concrete
 {
     public class RouteManager : IRouteService
     {
-        private IRouteService _routeService;
-        public RouteManager(IRouteService routeService)
+        private IRouteRepository _routeService;
+        public RouteManager(IRouteRepository routeService)
         {
             _routeService = routeService;
         }

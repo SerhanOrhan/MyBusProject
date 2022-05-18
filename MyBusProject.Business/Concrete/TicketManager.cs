@@ -1,4 +1,5 @@
 ﻿using MyBusProject.Business.Abstract;
+using MyBusProject.Data.Abstract;
 using MyBusProject.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ namespace MyBusProject.Business.Concrete
 {
     public class TicketManager : ITicketService
     {
-        private ITicketService _ticketService;
-        public TicketManager(ITicketService ticketService)
+        private ITicketRepository _ticketService;
+        public TicketManager(ITicketRepository ticketService)
         {
             _ticketService = ticketService;
         }

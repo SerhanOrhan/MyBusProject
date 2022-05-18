@@ -35,6 +35,7 @@ namespace MyBusProject.WebUI
             services.AddScoped<IRouteRepository, EfCoreRouteRepository>();
             services.AddScoped<ITicketRepository, EfCoreTicketRepository>();
             services.AddScoped<IVoyageRepository, EfCoreVoyageRepository>();
+
             //Business kýsmý scop
             services.AddScoped<IBusService, BusManager>();
             services.AddScoped<IPassengerService, PassengerManager>();

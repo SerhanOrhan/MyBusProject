@@ -9,34 +9,34 @@ using System.Threading.Tasks;
 
 namespace MyBusProject.Business.Concrete
 {
-    public class VoyageManager : IVoyageService
+    public class CityManager : ICityService
     {
-        private IVoyageRepository _voyageService;
-        public VoyageManager(IVoyageRepository voyageService)
+        private ICityRepository _cityRepository;
+        public CityManager(ICityRepository cityRepository)
         {
-            _voyageService = voyageService;
+            _cityRepository = cityRepository;
         }
-        public void Create(Voyage entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Voyage entity)
+        public void Create(City entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<Voyage> GetAll()
+        public void Delete(City entity)
         {
             throw new NotImplementedException();
         }
 
-        public Voyage GetById(int id)
+        public List<City> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Voyage entity)
+        public City GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(City entity)
         {
             throw new NotImplementedException();
         }

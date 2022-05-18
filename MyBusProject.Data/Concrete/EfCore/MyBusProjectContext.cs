@@ -17,6 +17,7 @@ namespace MyBusProject.Data.Concrete
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Voyage> Voyages { get; set; }
         public DbSet<Station> Stations { get; set; }
+        public DbSet<City> Cities { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
