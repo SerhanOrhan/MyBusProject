@@ -1,0 +1,55 @@
+﻿@model TicketRoute
+
+
+
+<div class="container row m-auto">
+    <div class="col-md-12 mt-2">
+        <a asp-controller="admin" asp-action="CreateNewRoute" class="btn btn-primary">Yeni Bir Sefer Ekle</a>
+        <hr />
+        <h1 class="h3"> Bilet Kontrol</h1>
+        <table class="table table table-bordered shadow-sm mt-2">
+            <thead>
+                <tr>
+                    <th style="width:20px;">BiletID</th>
+                    <th style="width:145px;">Ad - Soyad</th>
+                    <th style="">Mail</th>
+                    <th style="width:25px;">Başlangıç</th>
+                    <th style="width:25px;">Bitiş</th>
+                    <th style="width:70px;">KoltukNo</th>
+                    <th style="width:80px;">Fiyat</th>
+                    <th style="width:85px;">GüzergahNo</th>
+                    <th style="width:165px;">İptal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Tickets.Count > 0)
+                {
+                    @foreach (var item in Model.Tickets)
+                    {
+                        <tr>
+                            <td>@item.TicketId</td>
+                            <td>@item.Name @item.Surname</td>
+                            <td>@item.Mail</td>
+                            <td>@item.StartCity</td>
+                            <td>@item.EndCity</td>
+                            <td>@item.SeatNo</td>
+                            <td>@item.Price ₺</td>
+                            <td>@item.RouteId</td>
+                            <td>
+                                <form action="/admin/cancelticket" method="POST" style="display:inline;">
+                                    <input type="hidden" name="ticketId" value="@item.TicketId" />
+                                    <button type="submit" class="btn btn-danger btn-md mr-2" style="color: white;">Bileti İptal Et</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <p>Sistemde henüz kayıtlı bilet yok!</p>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

@@ -9,6 +9,6 @@ namespace MyBusProject.Data.Abstract
 {
   public  interface ICityRepository : IRepository<City>
     {
-
+        string cityName();
     }
 }

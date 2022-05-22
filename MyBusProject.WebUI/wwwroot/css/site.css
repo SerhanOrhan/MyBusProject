@@ -1,71 +1,118 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.container {
+    width: 1140px !important;
+    max-width: 100% !important;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.nav-logo-context {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 30px !important;
+    color: rgb(45, 196, 77) !important;
+    font-weight: 800;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.flag-dropdown {
+    text-decoration: none;
+    color: gray !important;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.background-img img {
+    max-height: 410px;
+    position: absolute;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+.form-area {
+    position: relative;
+    top: 48px;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.city-input-context {
+    width: 245px;
+    height: 40px;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.rotate-icon {
+    color: #7cb900;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-right: -8px;
+    color: #7cb900 !important;
+    cursor: pointer;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.button-arrow {
+    right: 70px;
+    margin-bottom: 10px;
+    color: white;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+.person-button {
+    background-color: #2dc44d !important;
+    color: white !important;
+}
+
+.form-slider {
+    position: relative;
+    top: 48px;
+    height: 290px;
+    max-height: 290px;
+}
+
+.image-slide {
+    width: 570px;
+    max-width: 570px;
+    height: 290px;
+    max-height: 290px;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.card-style {
+    height: 290px !important;
+    background-color: rgba(0,0,0,.4) !important;
+}
+
+.prev {
+    top: 1px !important;
+}
+
+.card-yazi {
+    border-bottom: 1px solid gray;
+}
+
+.section-property {
+    height: 410px !important;
+}
+
+.footer-content {
+    background-color: #f8faf9;
+}
+
+.footer-a {
+    width: 123px;
+    height: 38px;
+    font-size: 15px;
+    text-align: center;
 }

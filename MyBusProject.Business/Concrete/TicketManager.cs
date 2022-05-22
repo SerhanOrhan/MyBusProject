@@ -11,32 +11,68 @@ namespace MyBusProject.Business.Concrete
 {
     public class TicketManager : ITicketService
     {
-        private ITicketRepository _ticketService;
-        public TicketManager(ITicketRepository ticketService)
+        private ITicketRepository _ticketRepository;
+        public TicketManager(ITicketRepository ticketRepository)
         {
-            _ticketService = ticketService;
+            _ticketRepository = ticketRepository;
         }
+
         public void Create(Ticket entity)
         {
-            throw new NotImplementedException();
+            _ticketRepository.Create(entity);
         }
 
         public void Delete(Ticket entity)
         {
-            throw new NotImplementedException();
+            _ticketRepository.Delete(entity);
         }
 
         public List<Ticket> GetAll()
         {
-            throw new NotImplementedException();
+           return _ticketRepository.GetAll();
         }
 
         public Ticket GetById(int id)
         {
-            throw new NotImplementedException();
+            return _ticketRepository.GetById(id);
+        }
+
+        public int GetCountBySeat(int routeId)
+        {
+            return _ticketRepository.GetCountBySeat(routeId);
+        }
+
+        public string GetDate(int id)
+        {
+            return _ticketRepository.GetDate(id);
+        }
+
+        public string GetHour(int id)
+        {
+            return _ticketRepository.GetHour(id);
+        }
+
+        public int GetId()
+        {
+            return _ticketRepository.GetId();
+        }
+
+        public Ticket GetLastRecord()
+        {
+            return _ticketRepository.GetLastRecord();
+        }
+
+        public List<int> GetSeat(int routeId)
+        {
+            return _ticketRepository.GetSeat(routeId);
         }
 
         public void Update(Ticket entity)
+        {
+            _ticketRepository.Update(entity);
+        }
+
+        public void Update(Ticket entity, int[] ticketIds)
         {
             throw new NotImplementedException();
         }

@@ -1,0 +1,193 @@
+﻿@model Route
+
+@{ var Price = Model.Price; }
+@if (ViewBag.Number < 5)
+{
+    Price = Price;
+}
+@if (ViewBag.Number > 5 && ViewBag.Number <= 10)
+{
+    Price = Price + Price * 0.10;
+}
+@if (ViewBag.Number > 10 && ViewBag.Number <= 15)
+{
+    Price = Price + Price * 0.20;
+}
+@if (ViewBag.Number > 15 && ViewBag.Number <= 20)
+{
+    Price = Price + Price * 0.30;
+}
+@if (ViewBag.Number > 20)
+{
+    Price = Price + Price * 0.40;
+}
+
+
+
+
+
+@{ var price1 = @Price * 0.8;
+    var price2 = @Price * 0.7;
+    var price3 = @Price * 0.6;
+    var price4 = @Price * 0.5;
+    var price5 = @Price * 0.45;
+}
+<div class="card mb-3 shadow">
+
+    <div class="card-title pl-3 pt-3">
+        <h1>@TempData["startRoute"] - @TempData["endRoute"]</h1>
+    </div>
+    <div class="card-body">
+        <form action="/route/details" method="POST" style="display:inline;">
+            <div class="row no-gutters">
+
+                <div class="col-md-8">
+                    <h4>@Model.StartRoute > @Model.EndRoute Aracı</h4>
+                    <p><b>Güzergah: </b> @Model.StartRoute > @Model.Route1 > @Model.Route2 > @Model.Route3 > @Model.EndRoute</p>
+                    <p>@Model.Date  -  @Model.Hour</p>
+                    <br />
+                    <p>Dolu koltuk sayısı: @ViewBag.Number</p>
+
+
+
+                    <input type="hidden" name="routeId" value="@Model.RouteId" />
+
+
+
+                    @if ((@TempData["startRoute"].ToString() == @Model.StartRoute) && (@TempData["endRoute"].ToString() == @Model.EndRoute))
+                    {
+                        <p style="text-align: right; font-size:26px;">@Price ₺</p>
+                        <input type="hidden" name="price" value="@Price" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.StartRoute) && (@TempData["endRoute"].ToString() == @Model.Route3))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price1 ₺</p>
+                        <input type="hidden" name="price" value="@price1" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.StartRoute) && (@TempData["endRoute"].ToString() == @Model.Route2))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price2 ₺</p>
+                        <input type="hidden" name="price" value="@price2" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.StartRoute) && (@TempData["endRoute"].ToString() == @Model.Route1))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price3 ₺</p>
+                        <input type="hidden" name="price" value="@price3" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route1) && (@TempData["endRoute"].ToString() == @Model.EndRoute))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price1 ₺</p>
+                        <input type="hidden" name="price" value="@price1" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route1) && (@TempData["endRoute"].ToString() == @Model.Route3))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price2 ₺</p>
+                        <input type="hidden" name="price" value="@price2" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route1) && (@TempData["endRoute"].ToString() == @Model.Route2))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price3 ₺</p>
+                        <input type="hidden" name="price" value="@price3" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route1) && (@TempData["endRoute"].ToString() == @Model.StartRoute))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price5 ₺</p>
+                        <input type="hidden" name="price" value="@price5" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route2) && (@TempData["endRoute"].ToString() == @Model.EndRoute))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price3 ₺</p>
+                        <input type="hidden" name="price" value="@price3" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route2) && (@TempData["endRoute"].ToString() == @Model.Route3))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price5 ₺</p>
+                        <input type="hidden" name="price" value="@price5" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route2) && (@TempData["endRoute"].ToString() == @Model.StartRoute))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price4 ₺</p>
+                        <input type="hidden" name="price" value="@price4" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route2) && (@TempData["endRoute"].ToString() == @Model.Route1))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price5 ₺</p>
+                        <input type="hidden" name="price" value="@price5" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route3) && (@TempData["endRoute"].ToString() == @Model.EndRoute))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price5 ₺</p>
+                        <input type="hidden" name="price" value="@price5" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route3) && (@TempData["endRoute"].ToString() == @Model.Route2))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price5 ₺</p>
+                        <input type="hidden" name="price" value="@price5" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route3) && (@TempData["endRoute"].ToString() == @Model.StartRoute))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price3 ₺</p>
+                        <input type="hidden" name="price" value="@price3" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.Route3) && (@TempData["endRoute"].ToString() == @Model.Route1))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price4 ₺</p>
+                        <input type="hidden" name="price" value="@price4" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.EndRoute) && (@TempData["endRoute"].ToString() == @Model.Route2))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price3 ₺</p>
+                        <input type="hidden" name="price" value="@price3" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.EndRoute) && (@TempData["endRoute"].ToString() == @Model.Route3))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price5 ₺</p>
+                        <input type="hidden" name="price" value="@price5" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.EndRoute) && (@TempData["endRoute"].ToString() == @Model.StartRoute))
+                    {
+                        <p style="text-align: right; font-size:26px;">@Price</p>
+                        <input type="hidden" name="price" value="@Price" />
+                    }
+                    @if ((@TempData["startRoute"].ToString() == @Model.EndRoute) && (@TempData["endRoute"].ToString() == @Model.Route1))
+                    {
+                        <p style="text-align: right; font-size:26px;">@price2 ₺</p>
+                        <input type="hidden" name="price" value="@price2" />
+                    }
+
+
+                    <input type="hidden" name="startRoute" value="@TempData["startRoute"].ToString()" />
+                    <input type="hidden" name="endRoute" value="@TempData["endRoute"].ToString()" />
+
+
+
+                </div>
+
+                <div class="row no-gutters">
+
+                    <div class="col-md-12">
+                        <br /><br /><hr /><br />
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-Mail" required="required" style="width: 1000px; margin-left: 30px;">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" id="" aria-describedby="" placeholder="Ad" required="required" style="width: 1000px; margin-left: 30px;">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="surname" class="form-control" id="" aria-describedby="" placeholder="Soyad" required="required" style="width: 1000px;margin-left: 30px;">
+                        </div>
+                        <div class="form-group">
+                            <select name="seatno" class="form-select form-select-lg mb-3" asp-items="@ViewBag.Seats" required="required" style="width: 1000px; height:30px; margin-left: 30px;">
+                                <option selected disabled>Koltuk Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-lg" style="color: white;margin-left: 38px;">Bilet Al</button>
+                    <br />
+                </div><br />
+            </div>
+        </form>
+    </div><br />
+
+</div>
+<br />

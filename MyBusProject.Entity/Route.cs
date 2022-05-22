@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace MyBusProject.Entity
 {
-  public  class Route
+   public class Route
     {
         public int RouteId { get; set; }
-        public string Name { get; set; }
-        public string Cordinate { get; set; }
-        public string Type { get; set; }
-        public List<Station> Stations { get; set; }
+        public string StartRoute { get; set; }
+        public string Route1 { get; set; }
+        public string Route2 { get; set; }
+        public string Route3 { get; set; }
+        public string EndRoute { get; set; }
+        public string Date { get; set; }
+        public string Hour { get; set; }
+        public double Price { get; set; }
+        public List<Ticket> Tickets { get; set; }
     }
 }

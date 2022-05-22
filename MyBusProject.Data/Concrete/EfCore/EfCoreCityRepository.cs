@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace MyBusProject.Data.Concrete.EfCore
 {
-   public class EfCoreCityRepository : EfCoreGenericRepository<City,MyBusProjectContext>, ICityRepository
+    public class EfCoreCityRepository : EfCoreGenericRepository<City, MyBusProjectContext>, ICityRepository
     {
+        public string cityName()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

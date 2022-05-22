@@ -30,18 +30,14 @@ namespace MyBusProject.WebUI
         {
             services.AddControllersWithViews();
             //Data Kýsmý Scop
-            services.AddScoped<IBusRepository, EfCoreBusRepository>();
-            services.AddScoped<IPassengerRepository, EfCorePassengerRepository>();
             services.AddScoped<IRouteRepository, EfCoreRouteRepository>();
             services.AddScoped<ITicketRepository, EfCoreTicketRepository>();
-            services.AddScoped<IVoyageRepository, EfCoreVoyageRepository>();
+            services.AddScoped<ICityRepository, EfCoreCityRepository>();
 
             //Business kýsmý scop
-            services.AddScoped<IBusService, BusManager>();
-            services.AddScoped<IPassengerService, PassengerManager>();
+            services.AddScoped<ICityService, CityManager>();
             services.AddScoped<IRouteService, RouteManager>();
             services.AddScoped<ITicketService, TicketManager>();
-            services.AddScoped<IVoyageService, VoyageManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,5 +14,12 @@ namespace MyBusProject.Business.Abstract
         void Create(Ticket entity);
         void Delete(Ticket entity);
         void Update(Ticket entity);
+        void Update(Ticket entity, int[] ticketIds);
+        int GetCountBySeat(int routeId);
+        List<int> GetSeat(int routeId);
+        Ticket GetLastRecord();
+        int GetId();
+        string GetDate(int id);
+        string GetHour(int id);
     }
 }

@@ -1,23 +1,156 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model TicketRoute
+@*<header class="mt-5">
+        @await Html.PartialAsync("_Slider")
+    </header>*@
+
+
+
+@*<div class="container shadow" style="margin-bottom: 100px; padding: 10px 14px;">
+    <div class="form-group" style="display: inline;">
+        <form action="/home/index" class="form-inline">
+            <select name="startroute" class="form-select-lg mb-3" asp-items="@ViewBag.Cities" style="width: 505px; height:53px;">
+                <option selected disabled>Nereden</option>
+            </select>
+            <select name="endroute" class="form-select-lg mb-3" asp-items="@ViewBag.Cities" style="width: 505px; height:53px;">
+                <option selected disabled>Nereye</option>
+            </select>
+            <input type="date" name="date" class="form-control-lg" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+            <button type="submit" class="btn btn-danger btn-lg btn-block">Seyahatleri Listele</button>
+        </form>
+    </div>*@
+    <section class="section-property">
+        <div class="background-img container-fluid p-0">
+            <img class="w-100" src="~/img/ilkbaharanasayfagorseli-40330.jpeg"
+                 alt="">
+        </div>
+        <div class="container form-container">
+            <div class="row form-content">
+                <div class="col-12 col-lg-6 form-area p-0">
+                    <div class="tab-container bg-white">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item"><a class="nav-link" href=""><span class="text-black">Otobüs Bileti</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href=""><span class="text-black">Otel</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href=""><span class="text-black">Uçak Bileti</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href=""><span class="text-black">PNR Sorgulama</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href=""><span class="text-black">Bilet İptal</span></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="flight-form d-flex align-items-center w-100 justify-content-center">
+                                <form action="/home/index" class="city-select">
+                                    <div class=" d-flex pt-2 pb-2 ps-4 pe-4 ">
+                                        <div>
+                                            <label for="">Nereden</label>
+                                            <div class="d-flex align-items-center justify-content-end city-input-context">
+                                                <select name="startroute" class="custom-select  position-relative p-1" asp-items="@ViewBag.Cities" style="width: 505px; height:40px;">
+                                                    <option selected disabled>Şehir Seçiniz</option>
+                                                </select>
+                                                <i class="fa-solid fa-location-crosshairs position-absolute me-1 rotate-icon fa-lg"></i>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end ps-3 pe-3 pb-2">
+                                           <a><i class="fa-solid fa-arrow-right-arrow-left"></i></a>
+                                        </div>
+                                        <div>
+                                            <label for="">Nereye</label>
+                                            <div class="d-flex align-items-center justify-content-end city-input-context">
+                                                <select name="endroute" class="custom-select  position-relative p-1" asp-items="@ViewBag.Cities" style="width: 505px; height:40px;">
+                                                    <option selected disabled>Şehir Seçiniz</option>
+                                                </select>
+                                                <i class="fa-solid fa-location-dot position-absolute me-1 rotate-icon fa-lg"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" d-flex pt-2 pb-2 ps-4 pe-4 justify-content-between">
+                                        <div>
+                                            <label for="">Gidiş Tarihi</label>
+                                            <div class="d-flex align-items-center justify-content-end city-input-context">
+                                                <input type="date" name="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control position-relative empty">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="">Kişi Sayısı</label>
+                                            <div class="d-flex align-items-center justify-content-end city-input-context">
+                                                <input type="number" class="form-control position-relative" placeholder="Kişi Sayısı Giriniz...">
+                                                <i class="fa-solid fa-user-group position-absolute me-1 rotate-icon fa-md"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" d-flex pt-2 pb-3 ps-4 pe-4 justify-content-center">
+                                        <div class="d-flex align-items-end ms-5">
+                                            <div class="d-flex align-items-end justify-content-center city-input-context ">
+                                                <button class="btn position-relative w-100 fw-bold person-button">Ucuz bilet bul</button>
+                                                <i class="fa-solid fa-arrow-right position-absolute button-arrow"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 form-slider d-flex align-items-center ps-5 pe-5">
+                    <div id="carouselExampleIndicators" class="carousel slide slider-container" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner h-100">
+                            <div class="carousel-item active h-100">
+                                <div class="card w-100 h-100 p-5 text-white card-style">
+                                    <div class="card-title card-yazi"><h3>Lorem ipsum dolor sit amet</h3></div>
+                                    <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, animi? Illo doloribus perspiciatis hic. Sed rem quo earum animi accusantium!</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item h-100">
+                                <div class="card w-100 h-100 p-5 text-white card-style">
+                                    <div class="card-title card-yazi"><h3>Lorem ipsum dolor sit amet</h3></div>
+                                    <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, animi? Illo doloribus perspiciatis hic. Sed rem quo earum animi accusantium!</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item h-100">
+                                <div class="card w-100 h-100 p-5 text-white card-style">
+                                    <div class="card-title card-yazi"><h3>Lorem ipsum dolor sit amet</h3></div>
+                                    <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, animi? Illo doloribus perspiciatis hic. Sed rem quo earum animi accusantium!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+</section>
+
+@if (Model.Routes != null)
+{
+    <div class="row">
+        @foreach (var item in @Model.Routes)
+        {
+
+            <div class="col-md-6">
+                @await Html.PartialAsync("_Route", item)
+
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="row">
+        @await Html.PartialAsync("_NoRoute")
+    </div>
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-10">
-            <form class="row form-group" asp-action="VoyageList">
-                <div class="col-sm-6">
-                    <label class="col-form-label">Nereden </label>
-                    <input type="text" class="form-control" placeholder="Başlangıç Noktası..." />
-                </div>
-                <div class="col-sm-6">
-                    <label class="col-form-label">Nereye </label>
-                    <input type="text" class="form-control" placeholder="Bitiş Noktası..." />
-                </div>
-                <div>
-                    <button class="btn btn-primary" type="submit">Seferleri Listele</button>
-                </div>
-            </form>
-        </div>
-    </div>
+
+
 </div>

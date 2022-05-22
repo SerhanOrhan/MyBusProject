@@ -14,5 +14,7 @@ namespace MyBusProject.Business.Abstract
         void Create(City entity);
         void Delete(City entity);
         void Update(City entity);
+        void Update(City entity, int[] cityIds);
+        string cityName();
     }
 }

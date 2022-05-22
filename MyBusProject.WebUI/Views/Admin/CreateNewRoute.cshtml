@@ -1,0 +1,30 @@
+﻿@model Route
+
+    <div class="container mt-3">
+        <form asp-action="CreateNewRoute" method="post" class="col row">
+            <select asp-for="@Model.StartRoute" class="form-select-lg mb-3 form-control" asp-items="@ViewBag.Cities">
+                <option selected disabled>Başlangıç Noktası</option>
+            </select>
+            <select asp-for="@Model.Route1" class="form-select-lg mb-3 form-control" asp-items="@ViewBag.Cities">
+                <option selected disabled>1. Durak</option>
+            </select>
+            <select asp-for="@Model.Route2" class="form-select-lg mb-3 form-control" asp-items="@ViewBag.Cities">
+                <option selected disabled>2. Durak</option>
+            </select>
+            <select asp-for="@Model.Route3" class="form-select-lg mb-3 form-control" asp-items="@ViewBag.Cities">
+                <option selected disabled>3. Durak</option>
+            </select>
+            <select asp-for="@Model.EndRoute" class="form-select-lg mb-3 form-control" asp-items="@ViewBag.Cities">
+                <option selected disabled>Bitiş</option>
+            </select>
+            <label class="mb-1">Sefer Tarihini Seçiniz</label>
+            <input type="date" asp-for="@Model.Date" min="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" />
+            <label class="mb-1">Sefer Saatini Seçiniz</label>
+            <input type="time" asp-for="@Model.Hour" class="form-control" />
+            <label class="mb-1">Sefer Fiyatı Yazınız</label>
+            <input type="number" asp-for="@Model.Price" class="form-control" />
+            <input type="submit" value="Kaydet" class=" btn btn-primary mt-2" />
+        </form>
+    </div>
+
+

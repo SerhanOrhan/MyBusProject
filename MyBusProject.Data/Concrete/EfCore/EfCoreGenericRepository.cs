@@ -14,27 +14,45 @@ namespace MyBusProject.Data.Concrete.EfCore
     {
         public void Create(TEntitiy entity)
         {
-            throw new NotImplementedException();
+            using (var context = new TContext())
+            {
+                context.Set<TEntitiy>().Add(entity);
+                context.SaveChanges();
+            }
         }
 
         public void Delete(TEntitiy entity)
         {
-            throw new NotImplementedException();
+            using (var context = new TContext())
+            {
+                context.Set<TEntitiy>().Remove(entity);
+                context.SaveChanges();
+            }
         }
 
         public List<TEntitiy> GetAll()
         {
-            throw new NotImplementedException();
+            using (var context= new TContext())
+            {
+               return context.Set<TEntitiy>().ToList();
+            }
         }
 
         public TEntitiy GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new TContext())
+            {
+                return context.Set<TEntitiy>().Find(id);
+            }
         }
 
         public void Update(TEntitiy entity)
         {
-            throw new NotImplementedException();
+            using (var context = new TContext())
+            {
+                context.Entry(entity).State = EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyBusProject.Entity
 {
-    public class City
+  public class City
     {
         public int CityId { get; set; }
         public string Name { get; set; }

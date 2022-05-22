@@ -16,19 +16,25 @@ namespace MyBusProject.Business.Concrete
         {
             _cityRepository = cityRepository;
         }
-        public void Create(City entity)
+
+        public string cityName()
         {
             throw new NotImplementedException();
+        }
+
+        public void Create(City entity)
+        {
+            _cityRepository.Create(entity);
         }
 
         public void Delete(City entity)
         {
-            throw new NotImplementedException();
+            _cityRepository.Delete(entity);
         }
 
         public List<City> GetAll()
         {
-            throw new NotImplementedException();
+            return _cityRepository.GetAll();
         }
 
         public City GetById(int id)
@@ -37,6 +43,11 @@ namespace MyBusProject.Business.Concrete
         }
 
         public void Update(City entity)
+        {
+            _cityRepository.Update(entity);
+        }
+
+        public void Update(City entity, int[] cityIds)
         {
             throw new NotImplementedException();
         }
