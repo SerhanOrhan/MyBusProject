@@ -1,23 +1,5 @@
 ﻿@model TicketRoute
-@*<header class="mt-5">
-        @await Html.PartialAsync("_Slider")
-    </header>*@
 
-
-
-@*<div class="container shadow" style="margin-bottom: 100px; padding: 10px 14px;">
-    <div class="form-group" style="display: inline;">
-        <form action="/home/index" class="form-inline">
-            <select name="startroute" class="form-select-lg mb-3" asp-items="@ViewBag.Cities" style="width: 505px; height:53px;">
-                <option selected disabled>Nereden</option>
-            </select>
-            <select name="endroute" class="form-select-lg mb-3" asp-items="@ViewBag.Cities" style="width: 505px; height:53px;">
-                <option selected disabled>Nereye</option>
-            </select>
-            <input type="date" name="date" class="form-control-lg" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
-            <button type="submit" class="btn btn-danger btn-lg btn-block">Seyahatleri Listele</button>
-        </form>
-    </div>*@
     <section class="section-property">
         <div class="background-img container-fluid p-0">
             <img class="w-100" src="~/img/ilkbaharanasayfagorseli-40330.jpeg"
@@ -136,11 +118,12 @@
     <div class="row">
         @foreach (var item in @Model.Routes)
         {
-
-            <div class="col-md-6">
+        <div class="container">
+            <div class="col-sm">
                 @await Html.PartialAsync("_Route", item)
-
             </div>
+        </div>
+
         }
     </div>
 }

@@ -50,5 +50,10 @@ namespace MyBusProject.WebUI.Controllers
             ViewBag.Cities = new SelectList(_cityService.GetAll().OrderBy(i => i.Name), "Name", "Name");
             return RedirectToAction("AdminList");
         }
+        public IActionResult UpdateTicket(int ticketId)
+        {
+            ViewBag.Cities = new SelectList(_cityService.GetAll().OrderBy(i => i.Name), "Name", "Name");
+            return View(_ticketService.GetById(ticketId));
+        }
     }
 }

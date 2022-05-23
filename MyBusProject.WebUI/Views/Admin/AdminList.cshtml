@@ -7,7 +7,7 @@
         <a asp-controller="admin" asp-action="CreateNewRoute" class="btn btn-primary">Yeni Bir Sefer Ekle</a>
         <hr />
         <h1 class="h3"> Bilet Kontrol</h1>
-        <table class="table table table-bordered shadow-sm mt-2">
+        <table class="table table table-bordered shadow-sm mt-2 table-hover">
             <thead>
                 <tr>
                     <th style="width:20px;">BiletID</th>
@@ -38,7 +38,11 @@
                             <td>
                                 <form action="/admin/cancelticket" method="POST" style="display:inline;">
                                     <input type="hidden" name="ticketId" value="@item.TicketId" />
-                                    <button type="submit" class="btn btn-danger btn-md mr-2" style="color: white;">Bileti İptal Et</button>
+                                    <button type="submit" class="btn btn-danger btn-sm text-white">İptal Et</button>
+                                </form>
+                                <form action="/admin/updateticket" method="post">
+                                    <input type="hidden" name="ticketId" value="@item.TicketId" />
+                                    <button type="submit" class="btn btn-primary btn-sm text-white">Güncelle</button>
                                 </form>
                             </td>
                         </tr>

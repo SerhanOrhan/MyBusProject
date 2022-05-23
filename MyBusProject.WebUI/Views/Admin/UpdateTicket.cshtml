@@ -1,0 +1,44 @@
+﻿@model Ticket
+
+<div class="container">
+    <form action="/" method="post">
+        <div class="d-flex flex-wrap">
+            <div class="w-50 p-2">
+                <label>Ad</label>
+                <input type="text" class="form-control" value="@Model.Name" />
+            </div>
+            <div class="w-50 p-2">
+                <label>Soyad</label>
+                <input type="text" class="form-control" value="@Model.Surname" />
+            </div>
+            <div class="w-50 p-2">
+                <label>Mail</label>
+                <input type="email" class="form-control" value="@Model.Mail" />
+            </div>
+            <div class="w-50 p-2">
+                <label>Fiyat</label>
+                <input type="number" class="form-control" value="@Model.Price" />
+            </div>
+            <div class="w-50 p-2">
+                <label>Koltuk Numarası</label>
+                <input type="number" class="form-control" value="@Model.SeatNo" />
+            </div>
+            <div class="w-50 p-2">
+                <label>Güzergah No</label>
+                <input type="number" class="form-control" value="@Model.RouteId" disabled="disabled" />
+            </div>
+            <div class="w-50 p-2">
+                <label>Kalkış Yeri</label>
+                <select name="startroute" class="form-control position-relative p-1" asp-items="@ViewBag.Cities" style="width: 505px; height:40px;">
+                    <option selected disabled>@Model.StartCity</option>
+                </select>
+            </div>
+            <div>
+                <label>Varış Yeri</label>
+                <select name="startroute" class="custom-select position-relative p-1" asp-items="@ViewBag.Cities" style="width: 505px; height:40px;">
+                    <option selected disabled>@Model.EndCity</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>

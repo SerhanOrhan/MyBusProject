@@ -116,3 +116,17 @@ select {
     font-size: 15px;
     text-align: center;
 }
+.seat-icon {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.button-sec {
+    background-color: #2dc44d !important;
+    color: white !important;
+}
+.route-title{
+    text-decoration:none !important;
+    font-weight:bold !important;
+    color: black !important;
+}
