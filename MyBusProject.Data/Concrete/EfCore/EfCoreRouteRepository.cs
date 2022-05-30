@@ -66,6 +66,7 @@ namespace MyBusProject.Data.Concrete.EfCore
         {
             using (var context = new MyBusProjectContext())
             {
+                var dateyeni = date.ToString("yyyy-MM-dd");
                 var start = context.Cities
                     .Where(i => i.CityId == Convert.ToInt32(startCity))
                     .Select(i => i.Name)
@@ -75,12 +76,12 @@ namespace MyBusProject.Data.Concrete.EfCore
                    .Select(i => i.Name)
                    .ToList();
                 var routeDate = context.Routes
-                    .Where(i => i.Date == Convert.ToString(date))
+                    .Where(i => i.Date == Convert.ToString(dateyeni))
                     .Select(i => i.Date)
                     .ToList();
                     
                 var routes = context.Routes
-                     .FromSqlRaw($"select * from Routes where ((StartRoute='{start[0]}' or Route1='{start[0]}' or Route2='{start[0]}' or Route3='{start[0]}'  ) and (EndRoute='{end[0]}' or Route3='{end[0]}' or Route2='{end[0]}' or Route1='{end[0]}' )) ")
+                     .FromSqlRaw($"select * from Routes where ((StartRoute='{start[0]}' or Route1='{start[0]}' or Route2='{start[0]}' or Route3='{start[0]}'  ) and (EndRoute='{end[0]}' or Route3='{end[0]}' or Route2='{end[0]}' or Route1='{end[0]}' )) and Date='{dateyeni}' ")
                      .ToList();
                 return routes;
             } 
