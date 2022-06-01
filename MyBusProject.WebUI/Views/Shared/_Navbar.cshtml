@@ -8,11 +8,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="AdminList">Admin List</a>
+                    </li>
+                }
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Otobüs Bileti</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="AdminList">Admin List</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a>
@@ -50,12 +53,25 @@
             </div>
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Giriş Yap</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Üye Ol</a>
-                    </li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" asp-controller="Account" asp-action="Register">Üye Ol</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" asp-controller="Account" asp-action="Manage">@User.Identity.Name</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" asp-controller="Account" asp-action="Login">Çıkış Yap</a>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </div>
