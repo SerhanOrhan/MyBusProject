@@ -68,7 +68,7 @@ namespace MyBusProject.WebUI
                 options.Cookie = new CookieBuilder()
                 {
                     HttpOnly = true,
-                    Name = "MiniShopApp.Security.Cookie",
+                    Name = "Enuygun.com.Security.Cookie",
                     SameSite = SameSiteMode.Strict
                 };
             });
@@ -107,6 +107,8 @@ namespace MyBusProject.WebUI
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseRouting();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyBusProject.WebUI.EmailServices;
 using MyBusProject.WebUI.Identity;
@@ -85,7 +86,7 @@ namespace MyBusProject.WebUI.Controllers
                     token = code
                 });
                 //email gönderme işlemi
-                await _emailSender.SendEmailAsync(model.Email, "Enuygun.com Confirm Account!", $"Lütfen email adresinizi onaylamak içi <a href='https://localhost:5001{url}'>tıklayınız!</a>");
+                await _emailSender.SendEmailAsync(model.Email, "Enuygun.com Confirm Account!", $"Lütfen email adresinizi onaylamak içi <a href='https://localhost:44306{url}'>tıklayınız!</a>");
                 CreateMessage("Kayit işleminizi tamamlamak için mailinize gönderilen onaylama linkine tıklayınız!", "warning");
                 return RedirectToAction("Login", "Account");
             }
